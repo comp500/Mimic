@@ -4,6 +4,11 @@ GLOBAL.Lua5_1 = Lua;
 GLOBAL.C = Lua.C;
 GLOBAL.core = {};
 GLOBAL.render = require("./scripts/clirender.js");
+process.on('uncaughtException', function(err) {
+    render.clear();
+    console.log(err);
+    process.exit();
+});
 require("./scripts/globals.js");
 require("./scripts/filesystem.js")
 GLOBAL.bitAPI = require("./scripts/apis/bit.js");

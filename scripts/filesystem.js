@@ -66,8 +66,8 @@ filesystem.format = function(path) {
 	if (path.length == 0) {
 		path = "/";
 	}
-
-	return path;
+	
+	return '.' + path;
 }
 
 
