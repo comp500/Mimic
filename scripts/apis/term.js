@@ -182,7 +182,7 @@ termAPI.getSize = function(L) {
 
 
 termAPI.scroll = function(L) {
-	var computer = core.getActiveComputer();
+	/*var computer = core.getActiveComputer();
 	var amount = C.luaL_checkint(L, 1);
 
 	var imageData = context.getImageData(
@@ -210,6 +210,8 @@ termAPI.scroll = function(L) {
 	}
 
 	render.border();
-
+	*/
 	return 0;
 }
+
+module.exports = termAPI
