@@ -606,3 +606,6 @@ globals.keyCodes = {
 	// Key z
 	"90": 44,
 };
+
+GLOBAL.config = config;
+GLOBAL.globals = globals;

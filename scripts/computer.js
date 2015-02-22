@@ -132,7 +132,10 @@ Computer.prototype.launch = function() {
 		console.log("Intialization Error: ", errorCode);
 		console.log("Trace: ", trace);
 		console.log("Thread closed");
-		thread.alive = false;
+		// code change
+		// used to be thread.alive = false
+		// changed: code error?
+		this.alive = false; // could be this.thread.alive
 
 		render.bsod(
 			"FATAL : BIOS ERROR",
@@ -330,3 +333,5 @@ Computer.prototype.getLocation = function() {
 
 	return {"x": x, "y": y};
 }
+
+module.exports = Computer;

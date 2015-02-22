@@ -76,3 +76,5 @@ bitAPI.blshift = function(L) {
 
 	return 1;
 }
+
+module.exports = bitAPI;

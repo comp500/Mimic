@@ -704,3 +704,4 @@ end)\n\
 \n\
 os.shutdown()\n\
 ';
+module.exports = code;
