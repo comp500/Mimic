@@ -7,8 +7,10 @@
 
 
 var config = {
-	"width": 51,
-	"height": 19,
+	//"width": 51,
+	//"height": 19,
+	"width": process.stdout.getWindowSize()[0],
+	"height": process.stdout.getWindowSize()[1],
 
 	"cellWidth": 12,
 	"cellHeight": 18,

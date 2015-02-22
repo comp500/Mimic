@@ -4,10 +4,6 @@ var render = {};
 var colors = require("colors");
 var cursor = {"x": 0, "y":0};
 
-render.renderBuffer = function() {
-	//console.log("well this is broken");
-};
-
 //
 //    Individual Cells
 //
@@ -24,7 +20,7 @@ render.characterBackground = function(x, y, color, ctx) {
 			console.log("hmm, i'm passed " + color);
 			//process.stdout.write(" ".colors)
 		} else {
-			render.renderBuffer();
+			//render.renderBuffer();
 		}
 		/*ctx.beginPath();
 		ctx.rect(cellX, cellY, actualWidth, actualHeight);
@@ -88,7 +84,7 @@ render.characterText = function(x, y, text, color, ctx) {
 					cursor.x = x + 1;
 				}
 			} else {
-				render.renderBuffer();
+				//render.renderBuffer();
 			}
 		//}
 	}
@@ -125,7 +121,17 @@ render.character = function(x, y, text, foreground, background, ctx) {
 					cursor.x = x + 1;
 				}
 			} else {
-				render.renderBuffer();
+				//render.renderBuffer();
+				process.stdout.cursorTo(0,y)
+				process.stdout.clearLine()
+				process.stdout.cursorTo(x,y)
+				process.stdout.write(text)
+				if ((x + 1) > computer.width){
+					cursor.x = 0;
+					cursor.y = y + 1;
+				} else {
+					cursor.x = x + 1;
+				}
 			}
 		}
 	}
@@ -142,7 +148,7 @@ render.clearLine = function(y, foreground, background) {
 	// something here
 	process.stdout.cursorTo(0,y);
 	process.stdout.clearLine();
-	render.renderBuffer();
+	//render.renderBuffer();
 }
 
 render.clear = function(foreground, background) {
