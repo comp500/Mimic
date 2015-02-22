@@ -47,7 +47,7 @@ var bgcolormap = {
 //
 
 
-render.characterBackground = function(x, y, color, ctx) {
+/*render.characterBackground = function(x, y, color, ctx) {
 	var computer = core.getActiveComputer();
 	if (x >= 1 && y >= 1 && x <= computer.width && y <= computer.height) {
 		//var actualWidth = config.cellWidth * config.terminalScale;
@@ -60,25 +60,25 @@ render.characterBackground = function(x, y, color, ctx) {
 		} else {
 			//render.renderBuffer();
 		}
-		/*ctx.beginPath();
+		*//*ctx.beginPath();
 		ctx.rect(cellX, cellY, actualWidth, actualHeight);
 		ctx.fillStyle = globals.colors[color];
-		ctx.fill();*/
+		ctx.fill();*//*
 	}
-}
+}*/
 
 
-render.characterText = function(x, y, text, color, ctx) {
+//render.characterText = function(x, y, text, color, ctx) {
 	/*if (typeof(ctx) == "undefined") {
 		ctx = context;
-	}*/
+	}*//*
 
 	if (text == " ") {
 		return;
 	}
 
 	var computer = core.getActiveComputer();
-	if (x >= 1 && y >= 1 && x <= computer.width && y <= computer.height) {
+	if (x >= 1 && y >= 1 && x <= computer.width && y <= computer.height) {*/
 		//var loc = characters.indexOf(text);
 		//if (loc != -1) {
 			/*var imgW = font.width / 16;
@@ -112,7 +112,7 @@ render.characterText = function(x, y, text, color, ctx) {
 			} else {
 				render.renderBuffer();
 			}*/
-			if (cursor.x <= x && cursor.y <= y) {
+			/*if (cursor.x <= x && cursor.y <= y) {
 				process.stdout.cursorTo(x,y)
 				process.stdout.write(text)
 				if ((x + 1) > computer.width){
@@ -126,7 +126,7 @@ render.characterText = function(x, y, text, color, ctx) {
 			}
 		//}
 	}
-}
+}*/
 
 
 render.character = function(x, y, text, foreground, background, ctx) {
@@ -154,7 +154,7 @@ render.character = function(x, y, text, foreground, background, ctx) {
 			if (cursor.x <= x && cursor.y <= y) {
 				process.stdout.cursorTo(x,y);
 				//process.stdout.write(text)
-				process.stdout.write(colors[colormap[foreground]+"."+bgcolormap[background]](text));
+				process.stdout.write(colors[colormap[foreground]][bgcolormap[background]](text));
 				if ((x + 1) > computer.width){
 					cursor.x = 0;
 					cursor.y = y + 1;
@@ -166,7 +166,7 @@ render.character = function(x, y, text, foreground, background, ctx) {
 				process.stdout.cursorTo(0,y);
 				process.stdout.clearLine();
 				process.stdout.cursorTo(x,y);
-				process.stdout.write(text);
+				process.stdout.write(colors[colormap[foreground]][bgcolormap[background]](text));
 				if ((x + 1) > computer.width){
 					cursor.x = 0;
 					cursor.y = y + 1;
