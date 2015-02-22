@@ -71,7 +71,7 @@ Computer.prototype.installStartupScript = function(contents) {
 Computer.prototype.installAPIs = function() {
 	var apis = {
 		"bit": bitAPI,
-		"fs": require("./apis/fsnode.js"),
+		"fs": require("./apis/fs.js"),
 		"http": httpAPI,
 		"os": osAPI,
 		"peripheral": peripheralAPI,

@@ -6,7 +6,7 @@
 
 
 
-var fs;
+var fs = require("fs");
 
 var filesystem = {};
 var computerFilesystem = {};
@@ -19,7 +19,7 @@ var computerFilesystem = {};
 
 
 filesystem.setup = function(callback) {
-	BrowserFS.install(window);
+	/*BrowserFS.install(window);
 
 	var request = new XMLHttpRequest();
 	request.open("GET", globals.paths.rom, true);
@@ -44,7 +44,8 @@ filesystem.setup = function(callback) {
 		callback();
 	}
 
-	request.send(null);
+	request.send(null);*/
+	callback();
 }
 
 
@@ -566,3 +567,6 @@ computerFilesystem.copy = function(from, to) {
 	sidebar.update();
 	return success;
 }
+
+GLOBAL.computerFilesystem = computerFilesystem;
+GLOBAL.filesystem = filesystem;
