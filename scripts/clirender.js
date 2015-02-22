@@ -4,6 +4,44 @@ var render = {};
 var colors = require("colors");
 var cursor = {"x": 0, "y":0};
 
+var colormap = {
+	'0': 'white',
+	'1': 'yellow',
+	'2': 'magenta',
+	'3': 'cyan',
+	'4': 'yellow',
+	'5': 'green',
+	'6': 'magenta',
+	'7': 'gray',
+	'8': 'gray',
+	'9': 'cyan',
+	'a': 'magenta',
+	'b': 'blue',
+	'c': 'gray',
+	'd': 'green',
+	'e': 'red',
+	'f': 'black'
+};
+
+var bgcolormap = {
+	'0': 'bgWhite',
+	'1': 'bgYellow',
+	'2': 'bgMagenta',
+	'3': 'bgCyan',
+	'4': 'bgYellow',
+	'5': 'bgGreen',
+	'6': 'bgMagenta',
+	'7': 'bgBlack',
+	'8': 'bgBlack',
+	'9': 'bgCyan',
+	'a': 'bgMagenta',
+	'b': 'bgBlue',
+	'c': 'bgBlack',
+	'd': 'bgGreen',
+	'e': 'bgRed',
+	'f': 'bgBlack'
+};
+
 //
 //    Individual Cells
 //
@@ -95,6 +133,8 @@ render.character = function(x, y, text, foreground, background, ctx) {
 	/*if (typeof(ctx) == "undefined") {
 		ctx = context;
 	}*/
+	background = background || "0";
+	foreground = foreground || "f";
 
 	var computer = core.getActiveComputer();
 	if (x >= 1 && y >= 1 && x <= computer.width && y <= computer.height) {
@@ -112,8 +152,9 @@ render.character = function(x, y, text, foreground, background, ctx) {
 		if (typeof(foreground) != "undefined") {
 			//render.characterText(x, y, text, foreground, ctx);
 			if (cursor.x <= x && cursor.y <= y) {
-				process.stdout.cursorTo(x,y)
-				process.stdout.write(text)
+				process.stdout.cursorTo(x,y);
+				//process.stdout.write(text)
+				process.stdout.write(colors[colormap[foreground]+"."+bgcolormap[background]](text));
 				if ((x + 1) > computer.width){
 					cursor.x = 0;
 					cursor.y = y + 1;
@@ -122,10 +163,10 @@ render.character = function(x, y, text, foreground, background, ctx) {
 				}
 			} else {
 				//render.renderBuffer();
-				process.stdout.cursorTo(0,y)
-				process.stdout.clearLine()
-				process.stdout.cursorTo(x,y)
-				process.stdout.write(text)
+				process.stdout.cursorTo(0,y);
+				process.stdout.clearLine();
+				process.stdout.cursorTo(x,y);
+				process.stdout.write(text);
 				if ((x + 1) > computer.width){
 					cursor.x = 0;
 					cursor.y = y + 1;
