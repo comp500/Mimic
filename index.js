@@ -3,6 +3,7 @@ var fs = require("fs");
 GLOBAL.Lua5_1 = Lua;
 GLOBAL.C = Lua.C;
 GLOBAL.core = {};
+GLOBAL.render = require("./scripts/clirender.js");
 require("./scripts/globals.js");
 GLOBAL.bitAPI = require("./scripts/apis/bit.js");
 GLOBAL.fsAPI = {};
