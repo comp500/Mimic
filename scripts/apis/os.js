@@ -151,3 +151,5 @@ osAPI.reboot = function(L) {
 	computer.shouldReboot = true;
 	return 0;
 }
+
+module.exports = osAPI;

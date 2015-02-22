@@ -8,7 +8,7 @@ require("./scripts/globals.js");
 require("./scripts/filesystem.js")
 GLOBAL.bitAPI = require("./scripts/apis/bit.js");
 GLOBAL.httpAPI = {};
-GLOBAL.osAPI = {};
+GLOBAL.osAPI = require("./scripts/apis/os.js");
 GLOBAL.peripheralAPI = {};
 GLOBAL.redstoneAPI = {};
 GLOBAL.termAPI = {};
