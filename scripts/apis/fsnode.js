@@ -201,3 +201,5 @@ fsAPI.copy = function(L) {
 
 	return 0;
 }*/
+
+module.exports = fsAPI;

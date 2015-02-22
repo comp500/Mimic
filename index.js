@@ -6,7 +6,6 @@ GLOBAL.core = {};
 GLOBAL.render = require("./scripts/clirender.js");
 require("./scripts/globals.js");
 GLOBAL.bitAPI = require("./scripts/apis/bit.js");
-GLOBAL.fsAPI = require("./scripts/apis/fsnode.js");
 GLOBAL.httpAPI = {};
 GLOBAL.osAPI = {};
 GLOBAL.peripheralAPI = {};
